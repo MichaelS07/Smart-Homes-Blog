@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - SmartHomes Tech Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        header nav ul {
+            padding: 0;
+            list-style: none;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header .highlight {
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #cccccc;
+        }
+        #main {
+            margin-top: 20px;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .category-card {
+            background: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .category-card h3 {
+            margin-top: 0;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #000000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="highlight">SmartHomes</span> Tech Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="main">
+        <div class="container">
+            <h2>Categories</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <h3>Smart Security</h3>
+                    <p>Explore the latest in home security systems, smart locks, and surveillance cameras.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Home Automation</h3>
+                    <p>Discover how to automate your home with smart hubs, routines, and voice commands.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Energy Management</h3>
+                    <p>Learn about smart thermostats, energy monitors, and efficient home systems.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Smart Lighting</h3>
+                    <p>Illuminate your home intelligently with smart bulbs, switches, and lighting systems.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Entertainment</h3>
+                    <p>Upgrade your entertainment with smart TVs, speakers, and streaming devices.</p>
+                </div>
+                <div class="category-card">
+                    <h3>Smart Appliances</h3>
+                    <p>Explore the world of connected kitchen and laundry appliances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SmartHomes Tech Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
