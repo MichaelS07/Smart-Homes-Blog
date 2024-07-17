@@ -12,6 +12,7 @@
             padding: 0;
             background-color: #ffffff;
             color: #000000;
+            overflow-x: hidden;
         }
         .container {
             width: 80%;
@@ -23,6 +24,14 @@
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.8);
         }
         header h1 {
             margin: 0;
@@ -50,14 +59,16 @@
         }
         #showcase {
             position: relative;
-            min-height: 400px;
+            min-height: 100vh;
             color: #ffffff;
             text-align: center;
-        }
-        #showcase img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         #showcase .overlay {
             position: absolute;
@@ -74,18 +85,28 @@
         #showcase h2 {
             font-size: 55px;
             margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         #showcase p {
             font-size: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
         }
         #main {
             margin-top: 20px;
+            padding-top: 60px;
         }
         .blog-post {
             background: #f4f4f4;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
         footer {
             padding: 20px;
@@ -93,6 +114,21 @@
             color: #ffffff;
             background-color: #000000;
             text-align: center;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -112,7 +148,6 @@
     </header>
 
     <section id="showcase">
-        <img src="/api/placeholder/1200/400" alt="Smart Home Technology">
         <div class="overlay">
             <h2>Smart Living, Simplified</h2>
             <p>Your guide to the latest in smart home technology and innovations.</p>
@@ -137,5 +172,62 @@
     <footer>
         <p>&copy; 2024 SmartHomes Tech Blog. All rights reserved.</p>
     </footer>
+
+    <div class="scroll-to-top">↑</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Fade in showcase content
+            setTimeout(() => {
+                document.querySelector('#showcase h2').style.opacity = '1';
+                document.querySelector('#showcase h2').style.transform = 'translateY(0)';
+                document.querySelector('#showcase p').style.opacity = '1';
+                document.querySelector('#showcase p').style.transform = 'translateY(0)';
+            }, 500);
+
+            // Fade in blog posts on scroll
+            const blogPosts = document.querySelectorAll('.blog-post');
+            const fadeInOnScroll = () => {
+                blogPosts.forEach(post => {
+                    const postTop = post.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (postTop < windowHeight * 0.75) {
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Header background change on scroll
+            const header = document.querySelector('header');
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            const changeHeaderBackground = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    header.classList.remove('scrolled');
+                    scrollToTopButton.style.display = 'none';
+                }
+            };
+
+            window.addEventListener('scroll', () => {
+                fadeInOnScroll();
+                changeHeaderBackground();
+            });
+
+            // Scroll to top functionality
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Set showcase background image
+            const showcase = document.getElementById('showcase');
+            showcase.style.backgroundImage = "url('/api/placeholder/1200/800')";
+        });
+    </script>
 </body>
 </html>
