@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHomes Tech Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        header nav ul {
+            padding: 0;
+            list-style: none;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header .highlight {
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #cccccc;
+        }
+        #showcase {
+            position: relative;
+            min-height: 400px;
+            color: #ffffff;
+            text-align: center;
+        }
+        #showcase img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        #showcase .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #showcase h2 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        #showcase p {
+            font-size: 20px;
+        }
+        #main {
+            margin-top: 20px;
+        }
+        .blog-post {
+            background: #f4f4f4;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #000000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="highlight">SmartHomes</span> Tech Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <img src="/api/placeholder/1200/400" alt="Smart Home Technology">
+        <div class="overlay">
+            <h2>Smart Living, Simplified</h2>
+            <p>Your guide to the latest in smart home technology and innovations.</p>
+        </div>
+    </section>
+
+    <section id="main">
+        <div class="container">
+            <div class="blog-post">
+                <h3>The Future of Smart Homes: Trends to Watch in 2025</h3>
+                <p>As smart home technology continues to evolve, we're seeing exciting new trends emerge. Here's what we can expect in the smart home landscape by 2025...</p>
+                <a href="#">Read More</a>
+            </div>
+            <div class="blog-post">
+                <h3>How AI is Revolutionizing Home Automation</h3>
+                <p>Artificial Intelligence is taking home automation to new heights. Discover how AI is making our homes smarter, more efficient, and easier to manage...</p>
+                <a href="#">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SmartHomes Tech Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>
