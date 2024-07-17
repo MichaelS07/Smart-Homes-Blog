@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartHomes Tech Blog - About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+        header nav ul {
+            padding: 0;
+            list-style: none;
+        }
+        header nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header .highlight {
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #cccccc;
+        }
+        #main {
+            margin-top: 100px;
+            padding-top: 60px;
+        }
+        .about-content {
+            background: #f4f4f4;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .about-content h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .about-content ul {
+            padding-left: 20px;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #000000;
+            text-align: center;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><span class="highlight">SmartHomes</span> Tech Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="main">
+        <div class="container">
+            <div class="about-content">
+                <h2>About SmartHomes Tech Blog</h2>
+                <p>Welcome to SmartHomes Tech Blog, your go-to resource for all things smart home technology! We are a team of tech enthusiasts who are passionate about the exciting direction in which smart home technology is heading.</p>
+
+                <h3>Our Mission</h3>
+                <p>Our mission is to keep you informed, inspired, and empowered in the rapidly evolving world of smart home technology. We believe that the future of home living is smart, efficient, and tailored to individual needs.</p>
+
+                <h3>What You'll Find Here</h3>
+                <ul>
+                    <li><strong>Latest Smart Tech:</strong> Stay up-to-date with the newest smart home devices and innovations hitting the market.</li>
+                    <li><strong>Practical Guides:</strong> Learn how to utilize smart technology to enhance your daily life and maximize your home's potential.</li>
+                    <li><strong>Product Reviews:</strong> Discover the best smart home products with our in-depth, hands-on reviews.</li>
+                    <li><strong>Comparisons:</strong> Make informed decisions with our detailed comparisons between different suppliers and products.</li>
+                    <li><strong>Tips and Tricks:</strong> Unlock the full potential of your smart home with our expert tips and little-known tricks.</li>
+                    <li><strong>Future Trends:</strong> Get a glimpse into the future of smart home technology with our analysis and predictions.</li>
+                </ul>
+
+                <h3>Our Commitment</h3>
+                <p>We are committed to providing accurate, unbiased, and helpful information to our readers. Our goal is to demystify smart home technology and make it accessible to everyone, from tech novices to seasoned enthusiasts.</p>
+
+                <p>Join us on this exciting journey as we explore the endless possibilities of smart home technology. Whether you're looking to dip your toes into home automation or you're ready to transform your entire living space into a smart oasis, we're here to guide you every step of the way.</p>
+
+                <p>Thank you for visiting SmartHomes Tech Blog. Together, let's build the homes of the future!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 SmartHomes Tech Blog. All rights reserved.</p>
+    </footer>
+
+    <div class="scroll-to-top">↑</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Fade in about content
+            const aboutContent = document.querySelector('.about-content');
+            setTimeout(() => {
+                aboutContent.style.opacity = '1';
+                aboutContent.style.transform = 'translateY(0)';
+            }, 200);
+
+            // Header background change on scroll
+            const header = document.querySelector('header');
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            const changeHeaderBackground = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    header.classList.remove('scrolled');
+                    scrollToTopButton.style.display = 'none';
+                }
+            };
+
+            window.addEventListener('scroll', changeHeaderBackground);
+
+            // Scroll to top functionality
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
