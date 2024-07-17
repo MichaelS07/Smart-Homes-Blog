@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categories - SmartHomes Tech Blog</title>
+    <title>SmartHomes Tech Blog - Categories</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,6 +12,7 @@
             padding: 0;
             background-color: #ffffff;
             color: #000000;
+            overflow-x: hidden;
         }
         .container {
             width: 80%;
@@ -23,6 +24,14 @@
             color: #ffffff;
             padding: 20px 0;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+        header.scrolled {
+            background: rgba(0, 0, 0, 0.8);
         }
         header h1 {
             margin: 0;
@@ -49,21 +58,32 @@
             color: #cccccc;
         }
         #main {
-            margin-top: 20px;
+            margin-top: 100px;
+            padding-top: 60px;
         }
         .category-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            padding: 20px 0;
         }
         .category-card {
             background: #f4f4f4;
             padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         .category-card h3 {
             margin-top: 0;
+            color: #333;
         }
         footer {
             padding: 20px;
@@ -71,6 +91,21 @@
             color: #ffffff;
             background-color: #000000;
             text-align: center;
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #000;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -93,27 +128,27 @@
         <div class="container">
             <h2>Categories</h2>
             <div class="category-grid">
-                <div class="category-card">
+                <div class="category-card" onclick="location.href='#smart-security'">
                     <h3>Smart Security</h3>
                     <p>Explore the latest in home security systems, smart locks, and surveillance cameras.</p>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="location.href='#home-automation'">
                     <h3>Home Automation</h3>
                     <p>Discover how to automate your home with smart hubs, routines, and voice commands.</p>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="location.href='#energy-management'">
                     <h3>Energy Management</h3>
                     <p>Learn about smart thermostats, energy monitors, and efficient home systems.</p>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="location.href='#smart-lighting'">
                     <h3>Smart Lighting</h3>
                     <p>Illuminate your home intelligently with smart bulbs, switches, and lighting systems.</p>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="location.href='#entertainment'">
                     <h3>Entertainment</h3>
                     <p>Upgrade your entertainment with smart TVs, speakers, and streaming devices.</p>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="location.href='#smart-appliances'">
                     <h3>Smart Appliances</h3>
                     <p>Explore the world of connected kitchen and laundry appliances.</p>
                 </div>
@@ -124,5 +159,53 @@
     <footer>
         <p>&copy; 2024 SmartHomes Tech Blog. All rights reserved.</p>
     </footer>
+
+    <div class="scroll-to-top">↑</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Fade in category cards on scroll
+            const categoryCards = document.querySelectorAll('.category-card');
+            const fadeInOnScroll = () => {
+                categoryCards.forEach(card => {
+                    const cardTop = card.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    if (cardTop < windowHeight * 0.75) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Header background change on scroll
+            const header = document.querySelector('header');
+            const scrollToTopButton = document.querySelector('.scroll-to-top');
+            const changeHeaderBackground = () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    header.classList.remove('scrolled');
+                    scrollToTopButton.style.display = 'none';
+                }
+            };
+
+            window.addEventListener('scroll', () => {
+                fadeInOnScroll();
+                changeHeaderBackground();
+            });
+
+            // Scroll to top functionality
+            scrollToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Initial call to fade in visible cards
+            fadeInOnScroll();
+        });
+    </script>
 </body>
 </html>
