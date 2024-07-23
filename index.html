@@ -10,8 +10,8 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
-            color: #000000;
+            background-color: #f4f4f4;
+            color: #333;
             overflow-x: hidden;
         }
         .container {
@@ -23,7 +23,6 @@
             background: #000000;
             color: #ffffff;
             padding: 20px 0;
-            text-align: center;
             position: fixed;
             width: 100%;
             top: 0;
@@ -33,10 +32,13 @@
         header.scrolled {
             background: rgba(0, 0, 0, 0.8);
         }
+        header .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
         header h1 {
             margin: 0;
-            padding-bottom: 10px;
-            position: relative;
         }
         header nav ul {
             padding: 0;
@@ -61,13 +63,11 @@
         .logo-container {
             width: 50px;
             height: 50px;
-            position: absolute;
-            left: 20px;
-            top: 20px;
             background-color: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-right: 20px;
         }
         .logo-placeholder {
             font-size: 12px;
@@ -75,56 +75,68 @@
             text-align: center;
         }
         #showcase {
-            position: relative;
-            height: 70vh; /* Adjust this value to control the height of the banner */
-            color: #ffffff;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background-image: url('https://raw.githubusercontent.com/MichaelS07/Smart-Homes-Blog/main/Embrasing%20Smar%20Homes.jpg');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
             background-size: cover;
-        }
-        #showcase .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background-position: center;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        #showcase .showcase-content {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
         }
         #showcase h2 {
-            font-size: 55px;
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #ffffff;
         }
         #showcase p {
             font-size: 20px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+            color: #ffffff;
         }
         #main {
-            margin-top: 100px;
-            padding-top: 60px;
+            padding: 30px 0;
         }
         .blog-post {
-            background: #f4f4f4;
+            background: #ffffff;
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        #featured-articles, #latest-posts, #newsletter, #testimonials, #cta-buttons, #social-media {
+            padding: 30px 0;
+        }
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .slide {
+            flex: 0 0 300px;
+            margin-right: 20px;
+            scroll-snap-align: start;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
         }
         footer {
             padding: 20px;
@@ -181,24 +193,26 @@
     </div>
 
     <header>
-        <div class="logo-container">
-            <div class="logo-placeholder">LOGO</div>
-        </div>
         <div class="container">
-            <h1><span class="highlight">SmartHomes</span> Tech Blog</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="categories.html">Categories</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-placeholder">LOGO</div>
+                </div>
+                <h1><span class="highlight">SmartHomes</span> Tech Blog</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <section id="showcase">
-        <div class="overlay">
+        <div class="showcase-content">
             <h2>Smart Living, Simplified</h2>
             <p>Your guide to the latest in smart home technology and innovations.</p>
         </div>
@@ -206,15 +220,97 @@
 
     <section id="main">
         <div class="container">
-            <div class="blog-post">
-                <h3>The Future of Smart Homes: Trends to Watch in 2025</h3>
-                <p>As smart home technology continues to evolve, we're seeing exciting new trends emerge. Here's what we can expect in the smart home landscape by 2025...</p>
-                <a href="#">Read More</a>
-            </div>
-            <div class="blog-post">
-                <h3>How AI is Revolutionizing Home Automation</h3>
-                <p>Artificial Intelligence is taking home automation to new heights. Discover how AI is making our homes smarter, more efficient, and easier to manage...</p>
-                <a href="#">Read More</a>
+            <section id="featured-articles">
+                <h2>Featured Articles</h2>
+                <div class="slider">
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/300x200" alt="Article 1">
+                        <h3>The Future of Smart Homes</h3>
+                        <p>Discover the upcoming trends in smart home technology...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/300x200" alt="Article 2">
+                        <h3>AI in Home Automation</h3>
+                        <p>How artificial intelligence is revolutionizing our homes...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                    <div class="slide">
+                        <img src="https://via.placeholder.com/300x200" alt="Article 3">
+                        <h3>Energy Efficiency Tips</h3>
+                        <p>Smart ways to reduce your home's energy consumption...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="latest-posts">
+                <h2>Latest Posts</h2>
+                <div class="posts-grid">
+                    <div class="blog-post">
+                        <h3>Smart Thermostats: A Comprehensive Guide</h3>
+                        <p>Learn how smart thermostats can help you save energy and improve comfort...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>The Rise of Voice-Controlled Smart Homes</h3>
+                        <p>Explore the convenience and possibilities of voice-controlled smart home devices...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Smart Home Security Systems: What You Need to Know</h3>
+                        <p>Discover how smart security systems are transforming home protection...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Integrating Smart Lighting into Your Home</h3>
+                        <p>Tips and tricks for creating the perfect smart lighting setup...</p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="newsletter">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest smart home tips and tricks!</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </section>
+
+            <section id="testimonials">
+                <h2>What Our Readers Say</h2>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-item">
+                        <p>"This blog has been incredibly helpful in setting up my smart home!"</p>
+                        - John Doe
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"The tips on energy efficiency have saved me a lot on my electricity bills."</p>
+                        - Jane Smith
+                    </div>
+                </div>
+            </section>
+
+            <section id="cta-buttons">
+                <a href="#" class="cta-button">Explore Categories</a>
+                <a href="#" class="cta-button">Join Our Community</a>
+            </section>
+
+            <section id="social-media">
+                <h2>Connect With Us</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                    <a href="#" class="social-icon">LinkedIn</a>
+                </div>
+            </section>
+
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search articles...">
+                <button id="search-button">Search</button>
             </div>
         </div>
     </section>
@@ -242,28 +338,7 @@
                 setTimeout(() => {
                     loadingOverlay.style.display = 'none';
                 }, 500);
-
-                // Fade in showcase content
-                setTimeout(() => {
-                    document.querySelector('#showcase h2').style.opacity = '1';
-                    document.querySelector('#showcase h2').style.transform = 'translateY(0)';
-                    document.querySelector('#showcase p').style.opacity = '1';
-                    document.querySelector('#showcase p').style.transform = 'translateY(0)';
-                }, 100);
             });
-
-            // Fade in blog posts on scroll
-            const blogPosts = document.querySelectorAll('.blog-post');
-            const fadeInOnScroll = () => {
-                blogPosts.forEach(post => {
-                    const postTop = post.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    if (postTop < windowHeight * 0.75) {
-                        post.style.opacity = '1';
-                        post.style.transform = 'translateY(0)';
-                    }
-                });
-            };
 
             // Header background change on scroll
             const header = document.querySelector('header');
@@ -278,10 +353,7 @@
                 }
             };
 
-            window.addEventListener('scroll', () => {
-                fadeInOnScroll();
-                changeHeaderBackground();
-            });
+            window.addEventListener('scroll', changeHeaderBackground);
 
             // Scroll to top functionality
             scrollToTopButton.addEventListener('click', () => {
@@ -291,9 +363,21 @@
                 });
             });
 
-            // Set showcase background image
-            const showcase = document.getElementById('showcase');
-            showcase.style.backgroundImage = "url('https://raw.githubusercontent.com/MichaelS07/Smart-Homes-Blog/main/Embrasing%20Smar%20Homes.jpg')"; // Add your image path here
+            // Newsletter form submission
+            const newsletterForm = document.getElementById('newsletter-form');
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for subscribing to our newsletter!');
+                newsletterForm.reset();
+            });
+
+            // Search functionality
+            const searchButton = document.getElementById('search-button');
+            searchButton.addEventListener('click', function() {
+                const searchTerm = document.getElementById('search-input').value;
+                alert(`Searching for: ${searchTerm}`);
+                // Implement actual search logic here
+            });
         });
     </script>
 </body>
