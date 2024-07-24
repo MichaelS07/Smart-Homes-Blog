@@ -13,6 +13,9 @@
             background-color: #ffffff;
             color: #000000;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .container {
             width: 80%;
@@ -60,6 +63,7 @@
         #main {
             margin-top: 100px;
             padding-top: 60px;
+            flex: 1;
         }
         .contact-form {
             background: #f4f4f4;
@@ -102,10 +106,18 @@
         }
         footer {
             padding: 20px;
-            margin-top: 20px;
             color: #ffffff;
             background-color: #000000;
             text-align: center;
+        }
+        .social-links {
+            margin-top: 10px;
+        }
+        .social-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 20px;
         }
         .scroll-to-top {
             position: fixed;
@@ -164,6 +176,12 @@
 
     <footer>
         <p>&copy; 2024 SmartHomes Tech Blog. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="Instagram">📸</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+        </div>
     </footer>
 
     <div class="scroll-to-top">↑</div>
